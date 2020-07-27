@@ -42,14 +42,17 @@ img {
 	margin: 0 2px;
 }
 .progress-reached {
-	width: 0px;
+	width: 0;
 	height: 4px;
 	background-color: whitesmoke;
 	border-radius: 2px;
 }
-.bar-active {
-	animation: bar-moves 5s 1;
-	animation-fill-mode: forwards;
+
+.bar--inprocess{
+	animation: movebar 5s 1 linear;
+}
+.bar--finished {
+	width: 100%;
 }
 .navbar {
 	display: flex;
@@ -96,6 +99,7 @@ img {
 	flex: 1;
 	display: flex;
 	align-items: center;
+	position: relative;
 }
 .picture-item {
 	width: 100%;
@@ -123,6 +127,7 @@ img {
 	position: absolute;
 	bottom: 0;
 	background-color: rgba(50,50,50,0.5);
+	z-index: 100;
 	/* padding: 10px auto; */
 }
 .up {
@@ -138,11 +143,26 @@ img {
 	padding-bottom: 10px;
 }
 
+.btn-left, .btn-right {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	/* background-color: aqua; */
+}
+.btn-left {
+	left: 0;
+}
+.btn-right {
+	right: 0;
+}
 
-@keyframes bar-moves {
+@keyframes movebar {
 	from {
-		width: 0%;
+		width: 0;
 	}
+
 	to {
 		width: 100%;
 	}

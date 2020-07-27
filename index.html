@@ -8,31 +8,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="./reset.css">
 		<link rel="stylesheet" href ="./main.css">
-		<script>
-			function showNextImage() {
-
-				const leftPicture = document.querySelector(".pic-left");
-				leftPicture.classList.remove("visible");
-
-				const rightPicture = document.querySelector(".pic-right");
-				rightPicture.classList.add("visible");
-			}
-			function afterFiveSec() {
-				setTimeout(function () {
-					showNextImage();
-					animateProgressbar();
-				}, 5000);
-			}
-			function animateProgressbar() {
-				const progressBarLeft = document.querySelector(".bar-left");
-				// progressBarLeft.classList.remove("bar-active");
-			
-				const progressBarRight = document.querySelector(".bar-right");
-				progressBarRight.classList.add("bar-active");
-			}
-
-			afterFiveSec();
-		</script>
 	</head>
 	<body>
 		<div class="main-container">
@@ -48,20 +23,25 @@
 			</header>
 			<div class="progress-bar">
 				<div class="progress-length">
-					<div class="progress-reached bar-left bar-active"></div>
+					<div class="progress-reached bar-left bar--initial"></div>
 				</div>
 				<div class="progress-length">
-					<div class="progress-reached bar-right"></div>
+					<div class="progress-reached bar-right bar--initial"></div>
 				</div>
 			</div>
 			<div class="picture">
-				<img src="./res/3.jpg" alt="" class="picture-item pic-left visible">
-				<img src="./res/7.jpg" alt="" class="picture-item pic-right">
+				<img src="./res/6.jpg" alt="" class="picture-item pic-left visible">
+				<img src="./res/10.jpg" alt="" class="picture-item pic-right">
+
+				<div class="btn-left" onclick="onBackwardClick()"></div>
+				<div class="btn-right" onclick="onForwardClick()"></div>
 			</div>
 			<footer class="footer">
 				<p class="up">^</p>
 				<p class="reply">reply</p>
 			</footer>
+			
 		</div>
+		<script src="./main.js"></script>
 	</body>
 </html>
