@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Status</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./reset.css">
+		<link rel="stylesheet" href ="./main.css">
+		<script>
+			function showNextImage() {
+
+				const leftPicture = document.querySelector(".pic-left");
+				leftPicture.classList.remove("visible");
+
+				const rightPicture = document.querySelector(".pic-right");
+				rightPicture.classList.add("visible");
+			}
+			function afterFiveSec() {
+				setTimeout(function () {
+					showNextImage();
+					animateProgressbar();
+				}, 5000);
+			}
+			function animateProgressbar() {
+				const progressBarLeft = document.querySelector(".bar-left");
+				// progressBarLeft.classList.remove("bar-active");
+			
+				const progressBarRight = document.querySelector(".bar-right");
+				progressBarRight.classList.add("bar-active");
+			}
+
+			afterFiveSec();
+		</script>
+	</head>
+	<body>
+		<div class="main-container">
+			<header class="header">
+				<nav class="navbar">
+					<img class="back" src="./res/leftarrow.svg" alt="back-arrow">
+					<div class="user">
+						<p class="user-name">XYZ ABC</p>
+						<p class="user-time">Today, 11.05 AM</p>
+					</div>
+					<img src="./res/more.svg" alt="more-options" class="more">
+				</nav>
+			</header>
+			<div class="progress-bar">
+				<div class="progress-length">
+					<div class="progress-reached bar-left bar-active"></div>
+				</div>
+				<div class="progress-length">
+					<div class="progress-reached bar-right"></div>
+				</div>
+			</div>
+			<div class="picture">
+				<img src="./res/3.jpg" alt="" class="picture-item pic-left visible">
+				<img src="./res/7.jpg" alt="" class="picture-item pic-right">
+			</div>
+			<footer class="footer">
+				<p class="up">^</p>
+				<p class="reply">reply</p>
+			</footer>
+		</div>
+	</body>
+</html>
